@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetContacts()
+        public async Task<IActionResult> GetTodos()
         {
             return Ok(await dbContext.Todos.ToListAsync());
             // return View();
@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> GetContact([FromRoute] Guid id)
+        public async Task<IActionResult> GetTodo([FromRoute] Guid id)
         {
             var contact = await dbContext.Todos.FindAsync(id);
             if (contact != null)
